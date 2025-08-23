@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Library library = new Library(100);
+        Library library = new Library();
 
         while (true) {
             System.out.println("""
@@ -28,10 +29,9 @@ public class Main {
                     System.out.println("Book added successfully");
                 }
                 case 2 -> {
-                    Book[] allBooks = library.getAllBooks();
-                    System.out.println("All books ");
-                    for (Book book : allBooks) {
-                        System.out.println(book);
+                    System.out.println("All books:");
+                    for (Book b : library.getAllBooks()) {
+                        System.out.println(b);
                     }
                 }
                 case 3 -> {
