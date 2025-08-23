@@ -40,7 +40,7 @@ public class Main {
                     int searchId = scanner.nextInt();
                     Book foundBook = library.getBookById(searchId);
                     if (foundBook != null) {
-                        System.out.println("Book found " + foundBook);
+                        System.out.println("Book found: " + foundBook);
                     } else {
                         System.out.println("Book not found");
                     }
