@@ -1,7 +1,5 @@
-import java.util.Objects;
-
 public class Book {
-    private int id;
+    private final int id;
     private String title;
     private String author;
 
@@ -13,10 +11,6 @@ public class Book {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {

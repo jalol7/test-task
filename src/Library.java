@@ -2,17 +2,19 @@ import java.util.ArrayList;
 
 public class Library {
     private ArrayList<Book> books;
+    private int nextId = 1;
 
     public Library() {
         books = new ArrayList<>();
     }
 
-    public void addBook(Book book) {
+    public void addBook(String title, String author) {
+        Book book = new Book(nextId++, title, author);
         books.add(book);
     }
 
     public ArrayList<Book> getAllBooks() {
-        return new ArrayList<>(books);
+        return new ArrayList<>(books); // Return a copy
     }
 
     public Book getBookById(int id) {

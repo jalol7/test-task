@@ -7,24 +7,26 @@ public class Main {
 
         while (true) {
             System.out.println("""
-                    Library Menu
-               1.Add book
-               2.List all books
-               3.Get book by id
-               4.Delete book
-               5.Exit     
+                         Library Menu
+                    1.Add book
+                    2.List all books
+                    3.Get book by id
+                    4.Delete book
+                    5.Exit     
                     """);
 
             int choice = scanner.nextInt();
+            scanner.nextLine();
+
             switch (choice) {
                 case 1 -> {
-                    System.out.println("Enter book id: ");
-                    int id = scanner.nextInt();
                     System.out.println("Enter book title: ");
-                    String title = scanner.next();
+                    String title = scanner.nextLine();
+
                     System.out.println("Enter book author: ");
-                    String author = scanner.next();
-                    library.addBook(new Book(id, title, author));
+                    String author = scanner.nextLine();
+
+                    library.addBook(title, author);
                     System.out.println("Book added successfully");
                 }
                 case 2 -> {
@@ -52,6 +54,7 @@ public class Main {
                     System.out.println("Exiting");
                     return;
                 }
+                default -> System.out.println("Invalid option");
             }
         }
     }
