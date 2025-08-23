@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -15,20 +16,27 @@ public class Main {
                     5.Exit     
                     """);
 
-   int choice = scanner.nextInt();
-            scanner.nextLine();
-
+            int choice;
+            try {
+                choice = scanner.nextInt();
+                scanner.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number from 1 to 5.");
+                scanner.nextLine();
+                continue;
+            }
             switch (choice) {
                 case 1 -> {
-                    System.out.println("Enter book title: ");
-                    String title = scanner.nextLine();
+                        System.out.println("Enter book title: ");
+                        String title = scanner.nextLine();
 
-                    System.out.println("Enter book author: ");
-                    String author = scanner.nextLine();
+                        System.out.println("Enter book author: ");
+                        String author = scanner.nextLine();
 
-                    library.addBook(title, author);
-                    System.out.println("Book added successfully");
+                        library.addBook(title, author);
+                        System.out.println("Book added successfully");
                 }
+
                 case 2 -> {
                     System.out.println("All books:");
                     for (Book b : library.getAllBooks()) {
