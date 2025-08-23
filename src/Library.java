@@ -10,7 +10,9 @@ public class Library {
 
     public void addBook(String title, String author) {
         Book book = new Book(nextId++, title, author);
-        books.add(book);
+        if(!books.contains(book)) {
+            books.add(book);
+        }
     }
 
     public ArrayList<Book> getAllBooks() {

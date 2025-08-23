@@ -15,7 +15,7 @@ public class Main {
                     5.Exit     
                     """);
 
-            int choice = scanner.nextInt();
+   int choice = scanner.nextInt();
             scanner.nextLine();
 
             switch (choice) {
