@@ -1,27 +1,39 @@
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class TwoSums {
     public static void main(String[] args) {
-        Scanner count = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter target:");
-        int target = count.nextInt();
-        System.out.println("Enter length of massive: ");
+        int target = sc.nextInt();
+        System.out.println("Enter length of array: ");
+        int[] massive = new int[sc.nextInt()];
 
-        int[] massive = new int[count.nextInt()];
-
-        System.out.println("Enter value: ");
+        System.out.println("Enter values: ");
         for (int i = 0; i < massive.length; i++) {
-            massive[i] = count.nextInt();
+            massive[i] = sc.nextInt();
         }
+
+        twoSum(massive, target);
+    }
+
+    private static void twoSum(int[] nums, int target) {
+        Set<Integer> firstPair = new HashSet<>();
+
         boolean found = false;
-        for (int i = 0; i < massive.length && !found; i++) {
-            for (int j = i+1; j < massive.length; j++) {
-                if (massive[i] + massive[j] == target) {
-                    System.out.println(massive[i] + " " + massive[j]);
-                    found = true;
-                }
+        for(int num : nums) {
+            int complement = target - num;//7
+            if(firstPair.contains(complement)) {
+                System.out.println(complement + " + " + num);
+                found = true;
+                break;
             }
+            firstPair.add(num);
+        }
+        if(!found) {
+            System.out.println("Not found");
         }
     }
 }
